@@ -14,4 +14,4 @@ More informations: [Official Postman website](https://www.postman.com/)
 
 ### demo_custom_resource_collection.json
 
-This collection illustrates all the common CRUD actions on a custom resource (articles) from the example module [demowsextend](https://github.com/PrestaShop/example-modules/tree/master/demowsextend), and explained here [extend webservice with custom resource in devdocs](https://devdocs.prestashop-project.org/8/modules/concepts/webservice/).
+This collection illustrates all the common CRUD actions on a custom resource (articles) from the example module [demowsextend](https://github.com/PrestaShop/example-modules/tree/master/demowsextend), and explained here [extend webservice with the custom resource in devdocs](https://devdocs.prestashop-project.org/8/modules/concepts/webservice/).
