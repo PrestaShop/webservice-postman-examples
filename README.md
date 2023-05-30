@@ -10,7 +10,15 @@ As a developer, Postman can greatly assist you in various ways. It allows you to
 
 More informations: [Official Postman website](https://www.postman.com/)
 
+## How to use those collections
+
+Please read this tutorial: [Testing webservices with Postman on devdocs.prestashop-project.org](https://devdocs.prestashop-project.org/8/webservice/tutorials/testing-webservice-postman/).
+
 ## Examples
+
+### demo_product_collection.json
+
+This collection illustrates all the common CRUD actions on product resources.
 
 ### demo_custom_resource_collection.json
 
