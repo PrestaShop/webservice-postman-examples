@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "95618e77-4c66-4c4c-8eff-f3b67e7bd810",
+		"name": "PrestaShop Webservice Demo Resource",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22206680"
+	},
+	"item": [
+		{
+			"name": "Get all articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{webservice_url}}/api/articles",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get article blank schema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{webservice_url}}/api/articles?schema=blank",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "schema",
+							"value": "blank"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create article",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <article>\n        <title>\n            <language id=\"1\">\n                <![CDATA[My title in english]]>\n            </language>\n            <language id=\"2\">\n                <![CDATA[Mon titre en français]]>\n            </language>\n        </title>\n        <type>\n            <![CDATA[Blog post]]>\n        </type>\n    </article>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/articles",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get article",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{webservice_url}}/api/articles/{{articleId}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get article (as JSON)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{webservice_url}}/api/articles/{{articleId}}?io_format=JSON",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"articles",
+						"{{articleId}}"
+					],
+					"query": [
+						{
+							"key": "io_format",
+							"value": "JSON"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update article - complete update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <article>\n        <id><![CDATA[{{articleId}}]]></id>\n        <type><![CDATA[Blog post upd]]></type>\n        <title>\n            <language id=\"1\"><![CDATA[My title in english]]></language>\n            <language id=\"2\"><![CDATA[Mon titre en français]]></language>\n        </title>\n    </article>\n</prestashop>"
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/articles/{{articleId}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update article - partial update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <article>\n        <id><![CDATA[{{articleId}}]]></id>\n        <type><![CDATA[Only this attribute is updated]]></type>\n    </article>\n</prestashop>"
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/articles/{{articleId}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete article",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <article>\n        <id><![CDATA[{{articleId}}]]></id>\n    </article>\n</prestashop>"
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/articles/{{articleId}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"articles",
+						"{{articleId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{webservice_key}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "webservice_key",
+			"value": "YOURKEYHERE",
+			"type": "string"
+		},
+		{
+			"key": "webservice_url",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "articleId",
+			"value": "1"
+		}
+	]
+}
