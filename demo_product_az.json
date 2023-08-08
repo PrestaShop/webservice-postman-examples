@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "95585ae1-4c59-4636-b049-f05690a8f426",
+		"name": "PrestaShop Webservice Product Resource A-Z",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22206680"
+	},
+	"item": [
+		{
+			"name": "1 - Create manufacturer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <manufacturer>\n        <name>ACMEManufacturer</name>\n    </manufacturer>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/manufacturers",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"manufacturers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Create supplier",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <supplier>\n        <name>ACMESupplier</name>\n    </supplier>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/suppliers",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"suppliers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Create category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n<category>\n    <name>\n        <language id=\"1\"><![CDATA[Category demo]]></language>\n    </name>\n    <link_rewrite>\n        <language id=\"1\"><![CDATA[category-demo]]></language>\n    </link_rewrite>\n    <description>\n        <language id=\"1\"><![CDATA[my awesome category description]]></language>\n    </description>\n    <active>1</active>\n    <id_parent>1</id_parent>\n</category>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/categories",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 - Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n<product>\n\t<id_manufacturer><![CDATA[1]]></id_manufacturer>\n\t<id_supplier><![CDATA[1]]></id_supplier>\n    <id_brand><![CDATA[10]]></id_brand>\n\t<id_category_default><![CDATA[1]]></id_category_default>\n\t<new><![CDATA[1]]></new>\n\t<id_default_combination><![CDATA[1]]></id_default_combination>\n\t<id_tax_rules_group><![CDATA[1]]></id_tax_rules_group>\n\t<type><![CDATA[1]]></type>\n\t<id_shop_default><![CDATA[1]]></id_shop_default>\n\t<reference><![CDATA[123456]]></reference>\n\t<supplier_reference><![CDATA[ABCDEF]]></supplier_reference>\n\t<ean13><![CDATA[1231231231231]]></ean13>\n\t<state><![CDATA[1]]></state>\n\t<product_type><![CDATA[standard]]></product_type>\n\t<price><![CDATA[123.45]]></price>\n\t<unit_price><![CDATA[123.45]]></unit_price>\n\t<active><![CDATA[1]]></active>\n\t<meta_description><language id=\"1\"><![CDATA[Description]]></language><language id=\"2\"><![CDATA[Description]]></language></meta_description>\n\t<meta_keywords><language id=\"1\"><![CDATA[]]></language><language id=\"2\"><![CDATA[]]></language></meta_keywords>\n\t<meta_title><language id=\"1\"><![CDATA[]]></language><language id=\"2\"><![CDATA[]]></language></meta_title>\n\t<link_rewrite><language id=\"1\"><![CDATA[]]></language><language id=\"2\"><![CDATA[]]></language></link_rewrite>\n\t<name><language id=\"1\"><![CDATA[Product Name]]></language><language id=\"2\"><![CDATA[Product Name]]></language></name>\n\t<description><language id=\"1\"><![CDATA[Description]]></language><language id=\"2\"><![CDATA[Description]]></language></description>\n\t<description_short><language id=\"1\"><![CDATA[]]></language><language id=\"2\"><![CDATA[]]></language></description_short>\n    <associations>\n        <categories>\n            <category>\n                <id><![CDATA[1]]></id>\n            </category>\n        </categories>\n    </associations>\n</product>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/products",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 - Get stock available",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{webservice_url}}/api/stock_availables?filter[id_product]={{id_product}}&display=full&output_format=JSON",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"stock_availables"
+					],
+					"query": [
+						{
+							"key": "filter[id_product]",
+							"value": "{{id_product}}"
+						},
+						{
+							"key": "display",
+							"value": "full"
+						},
+						{
+							"key": "output_format",
+							"value": "JSON"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 - Update stock available",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <stock_available>\n        <id><![CDATA[{{id_stock_available}}]]></id>\n        <quantity><![CDATA[10]]></quantity>\n    </stock_available>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/stock_availables/{{id_stock_available}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"stock_availables",
+						"{{id_stock_available}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 - Update stock available - complete",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <stock_available>\n        <id><![CDATA[{{id_stock_available}}]]></id>\n        <quantity><![CDATA[100]]></quantity>\n        <id_product>{{id_product}}</id_product>\n        <id_product_attribute>{{id_product_attribute}}</id_product_attribute>\n        <depends_on_stock>0</depends_on_stock>\n        <out_of_stock>0</out_of_stock>\n        <id_shop>1</id_shop>\n    </stock_available>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/stock_availables/{{id_stock_available}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"stock_availables",
+						"{{id_stock_available}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 - Upload image",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/images/products/{{product_id}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"images",
+						"products",
+						"{{product_id}}"
+					],
+					"query": [
+						{
+							"key": "image",
+							"value": "https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7 - Update multi-lang fields",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n<product>\n\t<id><![CDATA[{{product_id}}]]></id>\n\t<meta_description>\n        <language id=\"1\"><![CDATA[Meta English description]]></language>\n        <language id=\"2\"><![CDATA[Description meta en français]]></language>\n    </meta_description>\n\t<meta_keywords>\n        <language id=\"1\"><![CDATA[EN keyworkds]]></language>\n        <language id=\"2\"><![CDATA[Mots clés FR]]></language>\n    </meta_keywords>\n\t<meta_title>    \n        <language id=\"1\"><![CDATA[English Title]]></language>\n        <language id=\"2\"><![CDATA[Titre en Francais]]></language>\n    </meta_title>\n\t<link_rewrite>\n        <language id=\"1\"><![CDATA[english-title]]></language>\n        <language id=\"2\"><![CDATA[titre-francais]]></language>\n    </link_rewrite>\n\t<name>\n        <language id=\"1\"><![CDATA[Product name]]></language>\n        <language id=\"2\"><![CDATA[Nom du produit]]></language>\n    </name>\n\t<description>\n        <language id=\"1\"><![CDATA[English Description]]></language>\n        <language id=\"2\"><![CDATA[Description en français]]></language>\n    </description>\n\t<description_short>\n        <language id=\"1\"><![CDATA[Short English description]]></language>\n        <language id=\"2\"><![CDATA[Description courte en français]]></language>\n    </description_short>\n</product>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/products/{{product_id}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8 - Create Combination Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <product>\n        <id_manufacturer><![CDATA[1]]></id_manufacturer>\n        <id_supplier><![CDATA[1]]></id_supplier>\n        <id_category_default><![CDATA[1]]></id_category_default>\n        <new><![CDATA[1]]></new>\n        <id_default_combination><![CDATA[1]]></id_default_combination>\n        <id_tax_rules_group><![CDATA[1]]></id_tax_rules_group>\n        <type><![CDATA[1]]></type>\n        <id_shop_default><![CDATA[1]]></id_shop_default>\n        <reference><![CDATA[123456]]></reference>\n        <supplier_reference><![CDATA[ABCDEF]]></supplier_reference>\n        <ean13><![CDATA[1231231231231]]></ean13>\n        <state><![CDATA[1]]></state>\n        <product_type><![CDATA[combinations]]></product_type>\n        <price><![CDATA[123.45]]></price>\n        <unit_price><![CDATA[123.45]]></unit_price>\n        <active><![CDATA[1]]></active>\n        <meta_description>\n            <language id=\"1\"><![CDATA[Description]]></language>\n        </meta_description>\n        <meta_keywords>\n            <language id=\"1\"><![CDATA[Keywords]]></language>\n        </meta_keywords>\n        <meta_title>\n            <language id=\"1\"><![CDATA[My Title for SEO]]></language>\n        </meta_title>\n        <link_rewrite>\n            <language id=\"1\"><![CDATA[awesome-product]]></language>\n        </link_rewrite>\n        <name>\n            <language id=\"1\"><![CDATA[My awesome Product with combinations]]></language>\n        </name>\n        <description>\n            <language id=\"1\"><![CDATA[Description]]></language>\n        </description>\n        <description_short>\n            <language id=\"1\"><![CDATA[Short description]]></language>\n        </description_short>\n        <associations>\n            <categories>\n                <category>\n                    <id><![CDATA[1]]></id>\n                </category>\n            </categories>\n        </associations>\n    </product>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/products",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9 - Create Combinations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <combination>\n        <id_product><![CDATA[{{product_combination_id}}]]></id_product>\n        <ean13><![CDATA[1234567890123]]></ean13>\n        <mpn><![CDATA[123456]]></mpn>\n        <reference><![CDATA[demo_1]]></reference>\n        <supplier_reference><![CDATA[mfr_1]]></supplier_reference>\n        <price><![CDATA[10.000000]]></price>\n        <minimal_quantity><![CDATA[0]]></minimal_quantity>\n    </combination>\n</prestashop>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/combinations",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"combinations"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{webservice_key}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "webservice_key",
+			"value": "ABCD0123EFGH4567ABCD0123EFGH4567",
+			"type": "string"
+		},
+		{
+			"key": "webservice_url",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "product_id",
+			"value": "1"
+		}
+	]
+}
