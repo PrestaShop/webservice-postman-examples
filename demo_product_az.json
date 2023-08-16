@@ -3,7 +3,8 @@
 		"_postman_id": "95585ae1-4c59-4636-b049-f05690a8f426",
 		"name": "PrestaShop Webservice Product Resource A-Z",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22206680"
+		"_exporter_id": "22206680",
+		"_collection_link": "https://red-desert-274119.postman.co/workspace/Pennypet~0fdcd9d9-2e27-4d06-9f24-1f050c8a541a/collection/22206680-95585ae1-4c59-4636-b049-f05690a8f426?action=share&source=collection_link&creator=22206680"
 	},
 	"item": [
 		{
@@ -313,13 +314,57 @@
 			"response": []
 		},
 		{
-			"name": "9 - Create Combinations",
+			"name": "9 - Create Product options",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <combination>\n        <id_product><![CDATA[{{product_combination_id}}]]></id_product>\n        <ean13><![CDATA[1234567890123]]></ean13>\n        <mpn><![CDATA[123456]]></mpn>\n        <reference><![CDATA[demo_1]]></reference>\n        <supplier_reference><![CDATA[mfr_1]]></supplier_reference>\n        <price><![CDATA[10.000000]]></price>\n        <minimal_quantity><![CDATA[0]]></minimal_quantity>\n    </combination>\n</prestashop>",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <product_option>\n        <is_color_group><![CDATA[0]]></is_color_group>\n        <group_type><![CDATA[select]]></group_type>\n        <name>\n            <language id=\"1\"><![CDATA[{{attribute_name}}]]></language>\n        </name>\n        <public_name>\n            <language id=\"1\"><![CDATA[{{attribute_name}}]]></language>\n        </public_name>\n    </product_option>\n</prestashop>"
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/product_options",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"product_options"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10 - Create Product option values",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <product_option_value>\n        <id_attribute_group><![CDATA[{{id_product_option}}]]></id_attribute_group>\n        <name>\n            <language id=\"1\"><![CDATA[{{value}}]]></language>\n        </name>\n    </product_option_value>\n</prestashop>"
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/product_option_values",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"product_option_values"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11 - Create Combinations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <combination>\n        <id_product><![CDATA[{{product_combination_id}}]]></id_product>\n        <ean13><![CDATA[1234567890123]]></ean13>\n        <mpn><![CDATA[123456]]></mpn>\n        <reference><![CDATA[demo_1]]></reference>\n        <supplier_reference><![CDATA[mfr_1]]></supplier_reference>\n        <price><![CDATA[10.000000]]></price>\n        <minimal_quantity><![CDATA[0]]></minimal_quantity>\n        <associations>\n            <product_option_values nodeType=\"product_option_value\" api=\"product_option_values\">\n                <product_option_value>\n                    <id><![CDATA[17]]></id>\n                </product_option_value>\n            </product_option_values>\n        </associations>\n    </combination>\n</prestashop>",
 					"options": {
 						"raw": {
 							"language": "xml"
@@ -334,6 +379,73 @@
 					"path": [
 						"api",
 						"combinations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12 - Create Feature",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <product_feature>\n        <name>\n            <language id=\"1\"><![CDATA[{{name}}]]></language>\n        </name>\n    </product_feature>\n</prestashop>"
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/product_features",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"product_features"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13 - Create Feature value",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <product_feature_value>\n        <id_feature><![CDATA[{{id_feature}}]]></id_feature>\n        <value>\n            <language id=\"1\"><![CDATA[{{value}}]]></language>\n        </value>\n    </product_feature_value>\n</prestashop>"
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/product_feature_values",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"product_feature_values"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14 - Associate Feature to Product",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<prestashop xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n    <product>\n        <id><![CDATA[{{product_id}}]]></id>\n\t    <associations>\n            <product_features>\n                <product_feature>\n                    <id><![CDATA[{{id_feature}}]]></id>\n                    <id_feature_value><![CDATA[{{id_feature_value}}]]></id_feature_value>\n                </product_feature>\n            </product_features>\n        </associations>\n    </product>\n</prestashop>"
+				},
+				"url": {
+					"raw": "{{webservice_url}}/api/products/{{product_id}}",
+					"host": [
+						"{{webservice_url}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"{{product_id}}"
 					]
 				}
 			},
@@ -384,6 +496,11 @@
 		{
 			"key": "product_id",
 			"value": "1"
+		},
+		{
+			"key": "product_combination_id",
+			"value": "1",
+			"type": "string"
 		}
 	]
 }
