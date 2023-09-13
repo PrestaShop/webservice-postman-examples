@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "95585ae1-4c59-4636-b049-f05690a8f426",
+		"_postman_id": "db3dfc37-fe6d-4de4-b6e1-088aeabce42e",
 		"name": "PrestaShop Webservice Product Resource A-Z",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "22206680",
-		"_collection_link": "https://red-desert-274119.postman.co/workspace/Pennypet~0fdcd9d9-2e27-4d06-9f24-1f050c8a541a/collection/22206680-95585ae1-4c59-4636-b049-f05690a8f426?action=share&source=collection_link&creator=22206680"
+		"_collection_link": "https://red-desert-274119.postman.co/workspace/0fdcd9d9-2e27-4d06-9f24-1f050c8a541a/collection/22206680-db3dfc37-fe6d-4de4-b6e1-088aeabce42e?action=share&source=collection_link&creator=22206680"
 	},
 	"item": [
 		{
@@ -121,7 +121,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{webservice_url}}/api/stock_availables?filter[id_product]={{id_product}}&display=full&output_format=JSON",
+					"raw": "{{webservice_url}}/api/stock_availables?filter[id_product]={{product_id}}&display=full&output_format=JSON",
 					"host": [
 						"{{webservice_url}}"
 					],
@@ -132,7 +132,7 @@
 					"query": [
 						{
 							"key": "filter[id_product]",
-							"value": "{{id_product}}"
+							"value": "{{product_id}}"
 						},
 						{
 							"key": "display",
@@ -246,13 +246,6 @@
 						"images",
 						"products",
 						"{{product_id}}"
-					],
-					"query": [
-						{
-							"key": "image",
-							"value": "https://www.referenseo.com/wp-content/uploads/2019/03/image-attractive.jpg",
-							"disabled": true
-						}
 					]
 				}
 			},
